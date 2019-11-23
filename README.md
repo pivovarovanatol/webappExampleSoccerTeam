@@ -1,12 +1,10 @@
 # Welcome!
 
-Thank you for your interest in AppNeta. Please review the following instructions.
-
-Inside this repo, you'll find the skeleton of a small web application - it consists of both a [server](./server/README.md) and a [client](./client/README.md). They both have some minimal functionality already, but we'd like you to enhance it as described below.
+Inside this repo, you'll find the skeleton of a small web application - it consists of both a [server](./server/README.md) and a [client](./client/README.md). They both have some minimal functionality already, but I'm going to enhance it as described below:
 
 ## Virtual Machine
 
-To make things a little simpler, we provide a Virtual Machine that comes pre-installed with all of the required software:
+To make things a little simpler, I have a Virtual Machine that comes pre-installed with all of the required software:
 
 * Ubuntu 16.04
 * OpenJDK Java Development Kit 1.8
