@@ -1,0 +1,29 @@
+number,name,nat,pos,height,weight,dob,birthplace
+1,Stefan Marinović,NZL,G,1.91,92,1991-10-07,Auckland
+2,Doneil Henry,CAN,D,1.88,82,1993-04-20,Brampton
+3,Sean Franklin,USA,D,1.78,70,1985-03-21,Panorama City
+4,Kendall Waston,CRC,D,1.96,88,1988-01-01,San José [CRC]
+6,Efrain Juárez,MEX,D,1.72,65,1988-02-22,Mexico City
+7,Bernie Ibini-Isei,AUS,F,1.87,73,1992-09-12,Port Harcourt
+8,Felipe Martins,BRA,M,1.70,68,1990-09-30,Engenheiro Beltrão
+9,Anthony Blondell,VEN,F,1.86,77,1994-05-17,Cumaná
+11,Nicolás Mezquida,URU,F,1.72,66,1992-01-21,Paysandú
+12,Brian Rowe,USA,G,1.85,84,1988-11-16,Chicago
+13,Cristian Techera,URU,M,1.57,68,1992-05-31,Paysandú
+14,David Edgar,CAN,D,1.88,70,1987-05-19,Kitchener
+17,Marcel de Jong,CAN,D,1.74,73,1986-10-15,New Market
+18,José Aja,URU,D,1.93,84,1993-05-10,Montevideo
+19,Erik Hurtado,USA,F,1.78,82,1990-11-05,Fredericksburg
+20,Brek Shea,USA,M,1.90,82,1990-02-28,College Station
+22,Aaron Maund,USA,D,1.85,84,1990-09-19,"Dorchester, MA"
+23,Kei Kamara,SLE,F,1.88,75,1984-09-01,Lawndale
+24,David Norman Jr,CAN,M,1.88,82,1998-05-31,New Westminster
+28,Jake Nerwinski,USA,D,1.83,80,1994-10-17,Lawrenceville
+29,Yordi Reyna,PER,F,1.69,68,1993-09-17,Chiclayo
+31,Russell Teibert,CAN,M,1.70,66,1992-12-22,Niagara Falls
+35,Deybi Flores,HON,M,1.83,68,1996-06-16,San Pedro Sula
+45,Myer Bevan,NZL,F,1.84,77,1997-04-23,Auckland
+46,Brett Levis,CAN,M,1.73,71,1993-03-29,Saskatoon
+66,Ali Ghazal,EGY,M,1.90,82,1992-02-01,Maadi
+67,Alphonso Davies,CAN,F,1.78,69,2000-11-02,Montovia
+77,Jordon Mutch,ENG,M,1.75,65,1992-12-02,Birmingham
