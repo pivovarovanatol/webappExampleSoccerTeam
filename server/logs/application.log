@@ -1,0 +1,388 @@
+INFO  [2018-03-19 16:52:26,511] org.eclipse.jetty.util.log: Logging initialized @8732ms to org.eclipse.jetty.util.log.Slf4jLog
+INFO  [2018-03-19 16:52:26,553] io.dropwizard.server.DefaultServerFactory: Registering jersey handler with root path prefix: /
+INFO  [2018-03-19 16:52:26,556] io.dropwizard.server.DefaultServerFactory: Registering admin handler with root path prefix: /
+INFO  [2018-03-19 16:52:26,558] io.dropwizard.assets.AssetsBundle: Registering AssetBundle with name: assets for path /assets/*
+INFO  [2018-03-19 16:52:26,625] io.dropwizard.hibernate.SessionFactoryFactory: Entity classes: [com.example.helloworld.core.Person]
+INFO  [2018-03-19 16:52:26,723] org.hibernate.dialect.Dialect: HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+INFO  [2018-03-19 16:52:26,739] org.hibernate.type.BasicTypeRegistry: HHH000270: Type registration [java.util.Currency] overrides previous : org.hibernate.type.CurrencyType@1202f3a2
+INFO  [2018-03-19 16:52:26,739] org.hibernate.type.BasicTypeRegistry: HHH000270: Type registration [java.time.Duration] overrides previous : org.hibernate.type.DurationType@6bb63ed1
+INFO  [2018-03-19 16:52:26,740] org.hibernate.type.BasicTypeRegistry: HHH000270: Type registration [java.time.Instant] overrides previous : org.hibernate.type.InstantType@3a4f37a8
+INFO  [2018-03-19 16:52:26,740] org.hibernate.type.BasicTypeRegistry: HHH000270: Type registration [java.time.LocalDate] overrides previous : org.hibernate.type.LocalDateType@2d2689dc
+INFO  [2018-03-19 16:52:26,740] org.hibernate.type.BasicTypeRegistry: HHH000270: Type registration [java.time.LocalDateTime] overrides previous : org.hibernate.type.LocalDateTimeType@5bdd3b29
+INFO  [2018-03-19 16:52:26,740] org.hibernate.type.BasicTypeRegistry: HHH000270: Type registration [java.time.LocalTime] overrides previous : org.hibernate.type.LocalTimeType@35bc5924
+INFO  [2018-03-19 16:52:26,740] org.hibernate.type.BasicTypeRegistry: HHH000270: Type registration [java.time.OffsetDateTime] overrides previous : org.hibernate.type.OffsetDateTimeType@542b3be9
+INFO  [2018-03-19 16:52:26,740] org.hibernate.type.BasicTypeRegistry: HHH000270: Type registration [java.time.OffsetTime] overrides previous : org.hibernate.type.OffsetTimeType@2f9ceea8
+INFO  [2018-03-19 16:52:26,740] org.hibernate.type.BasicTypeRegistry: HHH000270: Type registration [java.time.ZonedDateTime] overrides previous : org.hibernate.type.ZonedDateTimeType@5b346ecd
+INFO  [2018-03-19 16:52:26,747] org.hibernate.hql.internal.QueryTranslatorFactoryInitiator: HHH000397: Using ASTQueryTranslatorFactory
+INFO  [2018-03-19 16:52:26,770] io.dropwizard.server.ServerFactory: Starting hello-world
+                           web-scale hello world dP for the web
+                                                 88
+  .d8888b. dP.  .dP .d8888b. 88d8b.d8b. 88d888b. 88 .d8888b.
+  88ooood8  `8bd8'  88'  `88 88'`88'`88 88'  `88 88 88ooood8
+  88.  ...  .d88b.  88.  .88 88  88  88 88.  .88 88 88.  ...
+  `88888P' dP'  `dP `88888P8 dP  dP  dP 88Y888P' dP `88888P'
+                                        88
+                                        dP
+
+INFO  [2018-03-19 16:52:26,909] org.eclipse.jetty.setuid.SetUIDListener: Opened application@619d7c0d{HTTP/1.1,[http/1.1]}{0.0.0.0:61925}
+INFO  [2018-03-19 16:52:26,909] org.eclipse.jetty.setuid.SetUIDListener: Opened admin@575357d8{HTTP/1.1,[http/1.1]}{0.0.0.0:61926}
+INFO  [2018-03-19 16:52:26,911] org.eclipse.jetty.server.Server: jetty-9.4.8.v20171121, build timestamp: 2017-11-21T13:27:37-08:00, git hash: 82b8fb23f757335bb3329d540ce37a2a2615f0a8
+INFO  [2018-03-19 16:52:27,084] io.dropwizard.jersey.DropwizardResourceConfig: The following paths were found for the configured resources:
+
+    GET     /filtered/hello (com.example.helloworld.resources.FilteredResource)
+    GET     /hello-world (com.example.helloworld.resources.HelloWorldResource)
+    POST    /hello-world (com.example.helloworld.resources.HelloWorldResource)
+    GET     /hello-world/date (com.example.helloworld.resources.HelloWorldResource)
+    GET     /people (com.example.helloworld.resources.PeopleResource)
+    POST    /people (com.example.helloworld.resources.PeopleResource)
+    GET     /people/{personId} (com.example.helloworld.resources.PersonResource)
+    GET     /people/{personId}/view_freemarker (com.example.helloworld.resources.PersonResource)
+    GET     /people/{personId}/view_mustache (com.example.helloworld.resources.PersonResource)
+    GET     /protected (com.example.helloworld.resources.ProtectedResource)
+    GET     /protected/admin (com.example.helloworld.resources.ProtectedResource)
+    GET     /views/iso88591.ftl (com.example.helloworld.resources.ViewResource)
+    GET     /views/iso88591.mustache (com.example.helloworld.resources.ViewResource)
+    GET     /views/utf8.ftl (com.example.helloworld.resources.ViewResource)
+    GET     /views/utf8.mustache (com.example.helloworld.resources.ViewResource)
+
+WARN  [2018-03-19 16:52:27,085] org.glassfish.jersey.internal.Errors: The following warnings have been detected: WARNING: Parameter authFilterClass of type java.lang.Class<? extends javax.ws.rs.container.ContainerRequestFilter> from private final java.lang.Class<? extends javax.ws.rs.container.ContainerRequestFilter> io.dropwizard.auth.AuthDynamicFeature.authFilterClass is not resolvable to a concrete type.
+WARNING: Parameter authFilterClass of type java.lang.Class<? extends javax.ws.rs.container.ContainerRequestFilter> from private final java.lang.Class<? extends javax.ws.rs.container.ContainerRequestFilter> io.dropwizard.auth.AuthDynamicFeature.authFilterClass is not resolvable to a concrete type.
+
+INFO  [2018-03-19 16:52:27,085] org.eclipse.jetty.server.handler.ContextHandler: Started i.d.j.MutableServletContextHandler@4ff56021{/,null,AVAILABLE}
+INFO  [2018-03-19 16:52:27,092] io.dropwizard.setup.AdminEnvironment: tasks = 
+
+    POST    /tasks/echo (com.example.helloworld.tasks.EchoTask)
+    POST    /tasks/log-level (io.dropwizard.servlets.tasks.LogConfigurationTask)
+    POST    /tasks/gc (io.dropwizard.servlets.tasks.GarbageCollectionTask)
+
+INFO  [2018-03-19 16:52:27,103] org.eclipse.jetty.server.handler.ContextHandler: Started i.d.j.MutableServletContextHandler@69cf050f{/,null,AVAILABLE}
+INFO  [2018-03-19 16:52:27,117] org.eclipse.jetty.server.AbstractConnector: Started application@619d7c0d{HTTP/1.1,[http/1.1]}{0.0.0.0:61925}
+INFO  [2018-03-19 16:52:27,117] org.eclipse.jetty.server.AbstractConnector: Started admin@575357d8{HTTP/1.1,[http/1.1]}{0.0.0.0:61926}
+INFO  [2018-03-19 16:52:27,118] org.eclipse.jetty.server.Server: Started @9339ms
+INFO  [2018-03-19 16:52:27,952] liquibase: Successfully acquired change log lock
+INFO  [2018-03-19 16:52:28,922] liquibase: Creating database history table with name: PUBLIC.DATABASECHANGELOG
+INFO  [2018-03-19 16:52:28,926] liquibase: Reading from PUBLIC.DATABASECHANGELOG
+INFO  [2018-03-19 16:52:28,940] liquibase: migrations.xml: migrations.xml::1::codahale: Table people created
+INFO  [2018-03-19 16:52:28,940] liquibase: migrations.xml: migrations.xml::1::codahale: ChangeSet migrations.xml::1::codahale ran successfully in 3ms
+INFO  [2018-03-19 16:52:28,951] liquibase: Successfully released change log lock
+INFO  [2018-03-19 16:52:29,134] org.hibernate.engine.internal.StatisticalLoggingSessionEventListener: Session Metrics {
+    109466 nanoseconds spent acquiring 2 JDBC connections;
+    47387 nanoseconds spent releasing 2 JDBC connections;
+    9431725 nanoseconds spent preparing 1 JDBC statements;
+    1408390 nanoseconds spent executing 1 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    180103 nanoseconds spent executing 1 flushes (flushing a total of 1 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+INFO  [2018-03-19 16:52:29,207] org.hibernate.engine.internal.StatisticalLoggingSessionEventListener: Session Metrics {
+    83568 nanoseconds spent acquiring 2 JDBC connections;
+    46017 nanoseconds spent releasing 2 JDBC connections;
+    254441 nanoseconds spent preparing 1 JDBC statements;
+    194275 nanoseconds spent executing 1 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    141500 nanoseconds spent executing 1 flushes (flushing a total of 1 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+INFO  [2018-03-19 16:52:29,225] org.hibernate.engine.internal.StatisticalLoggingSessionEventListener: Session Metrics {
+    88471 nanoseconds spent acquiring 2 JDBC connections;
+    50545 nanoseconds spent releasing 2 JDBC connections;
+    53083 nanoseconds spent preparing 1 JDBC statements;
+    572140 nanoseconds spent executing 1 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    267016 nanoseconds spent executing 1 flushes (flushing a total of 1 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+INFO  [2018-03-19 16:52:29,231] org.hibernate.engine.internal.StatisticalLoggingSessionEventListener: Session Metrics {
+    72516 nanoseconds spent acquiring 2 JDBC connections;
+    53044 nanoseconds spent releasing 2 JDBC connections;
+    47124 nanoseconds spent preparing 1 JDBC statements;
+    141816 nanoseconds spent executing 1 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    150380 nanoseconds spent executing 1 flushes (flushing a total of 1 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+INFO  [2018-03-19 16:52:29,560] org.hibernate.engine.internal.StatisticalLoggingSessionEventListener: Session Metrics {
+    351426 nanoseconds spent acquiring 2 JDBC connections;
+    55618 nanoseconds spent releasing 2 JDBC connections;
+    43091 nanoseconds spent preparing 1 JDBC statements;
+    265952 nanoseconds spent executing 1 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    138790 nanoseconds spent executing 1 flushes (flushing a total of 1 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+INFO  [2018-03-19 16:52:29,582] org.eclipse.jetty.server.AbstractConnector: Stopped application@619d7c0d{HTTP/1.1,[http/1.1]}{0.0.0.0:0}
+INFO  [2018-03-19 16:52:29,583] org.eclipse.jetty.server.AbstractConnector: Stopped admin@575357d8{HTTP/1.1,[http/1.1]}{0.0.0.0:0}
+INFO  [2018-03-19 16:52:29,584] org.eclipse.jetty.server.handler.ContextHandler: Stopped i.d.j.MutableServletContextHandler@69cf050f{/,null,UNAVAILABLE}
+INFO  [2018-03-19 16:52:29,585] org.eclipse.jetty.server.handler.ContextHandler: Stopped i.d.j.MutableServletContextHandler@4ff56021{/,null,UNAVAILABLE}
+INFO  [2018-03-19 17:52:20,645] org.eclipse.jetty.util.log: Logging initialized @8917ms to org.eclipse.jetty.util.log.Slf4jLog
+INFO  [2018-03-19 17:52:20,697] io.dropwizard.server.DefaultServerFactory: Registering jersey handler with root path prefix: /
+INFO  [2018-03-19 17:52:20,701] io.dropwizard.server.DefaultServerFactory: Registering admin handler with root path prefix: /
+INFO  [2018-03-19 17:52:20,703] io.dropwizard.assets.AssetsBundle: Registering AssetBundle with name: assets for path /assets/*
+INFO  [2018-03-19 17:52:20,780] io.dropwizard.hibernate.SessionFactoryFactory: Entity classes: [com.example.helloworld.core.Person]
+INFO  [2018-03-19 17:52:20,872] org.hibernate.dialect.Dialect: HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+INFO  [2018-03-19 17:52:20,885] org.hibernate.type.BasicTypeRegistry: HHH000270: Type registration [java.util.Currency] overrides previous : org.hibernate.type.CurrencyType@1202f3a2
+INFO  [2018-03-19 17:52:20,886] org.hibernate.type.BasicTypeRegistry: HHH000270: Type registration [java.time.Duration] overrides previous : org.hibernate.type.DurationType@6bb63ed1
+INFO  [2018-03-19 17:52:20,886] org.hibernate.type.BasicTypeRegistry: HHH000270: Type registration [java.time.Instant] overrides previous : org.hibernate.type.InstantType@3a4f37a8
+INFO  [2018-03-19 17:52:20,886] org.hibernate.type.BasicTypeRegistry: HHH000270: Type registration [java.time.LocalDate] overrides previous : org.hibernate.type.LocalDateType@2d2689dc
+INFO  [2018-03-19 17:52:20,886] org.hibernate.type.BasicTypeRegistry: HHH000270: Type registration [java.time.LocalDateTime] overrides previous : org.hibernate.type.LocalDateTimeType@5bdd3b29
+INFO  [2018-03-19 17:52:20,886] org.hibernate.type.BasicTypeRegistry: HHH000270: Type registration [java.time.LocalTime] overrides previous : org.hibernate.type.LocalTimeType@35bc5924
+INFO  [2018-03-19 17:52:20,886] org.hibernate.type.BasicTypeRegistry: HHH000270: Type registration [java.time.OffsetDateTime] overrides previous : org.hibernate.type.OffsetDateTimeType@542b3be9
+INFO  [2018-03-19 17:52:20,886] org.hibernate.type.BasicTypeRegistry: HHH000270: Type registration [java.time.OffsetTime] overrides previous : org.hibernate.type.OffsetTimeType@2f9ceea8
+INFO  [2018-03-19 17:52:20,886] org.hibernate.type.BasicTypeRegistry: HHH000270: Type registration [java.time.ZonedDateTime] overrides previous : org.hibernate.type.ZonedDateTimeType@5b346ecd
+INFO  [2018-03-19 17:52:20,892] org.hibernate.hql.internal.QueryTranslatorFactoryInitiator: HHH000397: Using ASTQueryTranslatorFactory
+INFO  [2018-03-19 17:52:20,909] io.dropwizard.server.ServerFactory: Starting hello-world
+                           web-scale hello world dP for the web
+                                                 88
+  .d8888b. dP.  .dP .d8888b. 88d8b.d8b. 88d888b. 88 .d8888b.
+  88ooood8  `8bd8'  88'  `88 88'`88'`88 88'  `88 88 88ooood8
+  88.  ...  .d88b.  88.  .88 88  88  88 88.  .88 88 88.  ...
+  `88888P' dP'  `dP `88888P8 dP  dP  dP 88Y888P' dP `88888P'
+                                        88
+                                        dP
+
+INFO  [2018-03-19 17:52:21,079] org.eclipse.jetty.setuid.SetUIDListener: Opened application@5b620937{HTTP/1.1,[http/1.1]}{0.0.0.0:63144}
+INFO  [2018-03-19 17:52:21,079] org.eclipse.jetty.setuid.SetUIDListener: Opened admin@54e6dcba{HTTP/1.1,[http/1.1]}{0.0.0.0:63145}
+INFO  [2018-03-19 17:52:21,083] org.eclipse.jetty.server.Server: jetty-9.4.8.v20171121, build timestamp: 2017-11-21T13:27:37-08:00, git hash: 82b8fb23f757335bb3329d540ce37a2a2615f0a8
+INFO  [2018-03-19 17:52:21,259] io.dropwizard.jersey.DropwizardResourceConfig: The following paths were found for the configured resources:
+
+    GET     /filtered/hello (com.example.helloworld.resources.FilteredResource)
+    GET     /hello-world (com.example.helloworld.resources.HelloWorldResource)
+    POST    /hello-world (com.example.helloworld.resources.HelloWorldResource)
+    GET     /hello-world/date (com.example.helloworld.resources.HelloWorldResource)
+    GET     /people (com.example.helloworld.resources.PeopleResource)
+    POST    /people (com.example.helloworld.resources.PeopleResource)
+    GET     /people/{personId} (com.example.helloworld.resources.PersonResource)
+    GET     /people/{personId}/view_freemarker (com.example.helloworld.resources.PersonResource)
+    GET     /people/{personId}/view_mustache (com.example.helloworld.resources.PersonResource)
+    GET     /protected (com.example.helloworld.resources.ProtectedResource)
+    GET     /protected/admin (com.example.helloworld.resources.ProtectedResource)
+    GET     /views/iso88591.ftl (com.example.helloworld.resources.ViewResource)
+    GET     /views/iso88591.mustache (com.example.helloworld.resources.ViewResource)
+    GET     /views/utf8.ftl (com.example.helloworld.resources.ViewResource)
+    GET     /views/utf8.mustache (com.example.helloworld.resources.ViewResource)
+
+INFO  [2018-03-19 17:52:21,262] org.eclipse.jetty.server.handler.ContextHandler: Started i.d.j.MutableServletContextHandler@5ca417fd{/,null,AVAILABLE}
+INFO  [2018-03-19 17:52:21,267] io.dropwizard.setup.AdminEnvironment: tasks = 
+
+    POST    /tasks/log-level (io.dropwizard.servlets.tasks.LogConfigurationTask)
+    POST    /tasks/gc (io.dropwizard.servlets.tasks.GarbageCollectionTask)
+
+INFO  [2018-03-19 17:52:21,279] org.eclipse.jetty.server.handler.ContextHandler: Started i.d.j.MutableServletContextHandler@2781a1e5{/,null,AVAILABLE}
+INFO  [2018-03-19 17:52:21,301] org.eclipse.jetty.server.AbstractConnector: Started application@5b620937{HTTP/1.1,[http/1.1]}{0.0.0.0:63144}
+INFO  [2018-03-19 17:52:21,302] org.eclipse.jetty.server.AbstractConnector: Started admin@54e6dcba{HTTP/1.1,[http/1.1]}{0.0.0.0:63145}
+INFO  [2018-03-19 17:52:21,302] org.eclipse.jetty.server.Server: Started @9575ms
+INFO  [2018-03-19 17:52:22,106] liquibase: Successfully acquired change log lock
+INFO  [2018-03-19 17:52:22,978] liquibase: Creating database history table with name: PUBLIC.DATABASECHANGELOG
+INFO  [2018-03-19 17:52:22,981] liquibase: Reading from PUBLIC.DATABASECHANGELOG
+INFO  [2018-03-19 17:52:22,994] liquibase: migrations.xml: migrations.xml::1::codahale: Table people created
+INFO  [2018-03-19 17:52:22,994] liquibase: migrations.xml: migrations.xml::1::codahale: ChangeSet migrations.xml::1::codahale ran successfully in 2ms
+INFO  [2018-03-19 17:52:23,005] liquibase: Successfully released change log lock
+INFO  [2018-03-19 17:52:23,182] org.hibernate.engine.internal.StatisticalLoggingSessionEventListener: Session Metrics {
+    106357 nanoseconds spent acquiring 2 JDBC connections;
+    54418 nanoseconds spent releasing 2 JDBC connections;
+    9033051 nanoseconds spent preparing 1 JDBC statements;
+    1218890 nanoseconds spent executing 1 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    167696 nanoseconds spent executing 1 flushes (flushing a total of 1 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+ERROR [2018-03-19 17:52:23,209] org.glassfish.jersey.message.internal.WriterInterceptorExecutor: MessageBodyWriter not found for media type=text/html, type=class com.example.helloworld.views.PersonView, genericType=class com.example.helloworld.views.PersonView.
+INFO  [2018-03-19 17:52:23,210] org.hibernate.engine.internal.StatisticalLoggingSessionEventListener: Session Metrics {
+    100001 nanoseconds spent acquiring 2 JDBC connections;
+    67470 nanoseconds spent releasing 2 JDBC connections;
+    286373 nanoseconds spent preparing 1 JDBC statements;
+    184463 nanoseconds spent executing 1 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    156429 nanoseconds spent executing 1 flushes (flushing a total of 1 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+ERROR [2018-03-19 17:52:23,211] io.dropwizard.jersey.errors.LoggingExceptionMapper: Error handling a request: eb979bf7829a2847
+! org.glassfish.jersey.message.internal.MessageBodyProviderNotFoundException: MessageBodyWriter not found for media type=text/html, type=class com.example.helloworld.views.PersonView, genericType=class com.example.helloworld.views.PersonView.
+! at org.glassfish.jersey.message.internal.WriterInterceptorExecutor$TerminalWriterInterceptor.aroundWriteTo(WriterInterceptorExecutor.java:247)
+! at org.glassfish.jersey.message.internal.WriterInterceptorExecutor.proceed(WriterInterceptorExecutor.java:162)
+! at org.glassfish.jersey.server.internal.JsonWithPaddingInterceptor.aroundWriteTo(JsonWithPaddingInterceptor.java:106)
+! at org.glassfish.jersey.message.internal.WriterInterceptorExecutor.proceed(WriterInterceptorExecutor.java:162)
+! at org.glassfish.jersey.server.internal.MappableExceptionWrapperInterceptor.aroundWriteTo(MappableExceptionWrapperInterceptor.java:86)
+! ... 53 common frames omitted
+! Causing: javax.ws.rs.InternalServerErrorException: HTTP 500 Internal Server Error
+! at org.glassfish.jersey.server.internal.MappableExceptionWrapperInterceptor.aroundWriteTo(MappableExceptionWrapperInterceptor.java:90)
+! at org.glassfish.jersey.message.internal.WriterInterceptorExecutor.proceed(WriterInterceptorExecutor.java:162)
+! at org.glassfish.jersey.message.internal.MessageBodyFactory.writeTo(MessageBodyFactory.java:1130)
+! at org.glassfish.jersey.server.ServerRuntime$Responder.writeResponse(ServerRuntime.java:711)
+! at org.glassfish.jersey.server.ServerRuntime$Responder.processResponse(ServerRuntime.java:444)
+! at org.glassfish.jersey.server.ServerRuntime$Responder.process(ServerRuntime.java:434)
+! at org.glassfish.jersey.server.ServerRuntime$2.run(ServerRuntime.java:329)
+! at org.glassfish.jersey.internal.Errors$1.call(Errors.java:271)
+! at org.glassfish.jersey.internal.Errors$1.call(Errors.java:267)
+! at org.glassfish.jersey.internal.Errors.process(Errors.java:315)
+! at org.glassfish.jersey.internal.Errors.process(Errors.java:297)
+! at org.glassfish.jersey.internal.Errors.process(Errors.java:267)
+! at org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:317)
+! at org.glassfish.jersey.server.ServerRuntime.process(ServerRuntime.java:305)
+! at org.glassfish.jersey.server.ApplicationHandler.handle(ApplicationHandler.java:1154)
+! at org.glassfish.jersey.servlet.WebComponent.serviceImpl(WebComponent.java:473)
+! at org.glassfish.jersey.servlet.WebComponent.service(WebComponent.java:427)
+! at org.glassfish.jersey.servlet.ServletContainer.service(ServletContainer.java:388)
+! at org.glassfish.jersey.servlet.ServletContainer.service(ServletContainer.java:341)
+! at org.glassfish.jersey.servlet.ServletContainer.service(ServletContainer.java:228)
+! at io.dropwizard.jetty.NonblockingServletHolder.handle(NonblockingServletHolder.java:49)
+! at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1650)
+! at io.dropwizard.servlets.ThreadNameFilter.doFilter(ThreadNameFilter.java:35)
+! at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1637)
+! at io.dropwizard.jersey.filter.AllowedMethodsFilter.handle(AllowedMethodsFilter.java:45)
+! at io.dropwizard.jersey.filter.AllowedMethodsFilter.doFilter(AllowedMethodsFilter.java:39)
+! at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1637)
+! at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:533)
+! at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:188)
+! at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1253)
+! at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:168)
+! at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:473)
+! at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:166)
+! at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1155)
+! at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141)
+! at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:132)
+! at com.codahale.metrics.jetty9.InstrumentedHandler.handle(InstrumentedHandler.java:239)
+! at io.dropwizard.jetty.RoutingHandler.handle(RoutingHandler.java:52)
+! at org.eclipse.jetty.server.handler.gzip.GzipHandler.handle(GzipHandler.java:527)
+! at io.dropwizard.jetty.BiDiGzipHandler.handle(BiDiGzipHandler.java:67)
+! at org.eclipse.jetty.server.handler.RequestLogHandler.handle(RequestLogHandler.java:56)
+! at org.eclipse.jetty.server.handler.StatisticsHandler.handle(StatisticsHandler.java:169)
+! at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:132)
+! at org.eclipse.jetty.server.Server.handle(Server.java:530)
+! at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:347)
+! at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:256)
+! at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:279)
+! at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:102)
+! at org.eclipse.jetty.io.ChannelEndPoint$2.run(ChannelEndPoint.java:124)
+! at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.doProduce(EatWhatYouKill.java:247)
+! at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.produce(EatWhatYouKill.java:140)
+! at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:708)
+! at org.eclipse.jetty.util.thread.QueuedThreadPool$2.run(QueuedThreadPool.java:626)
+! at java.lang.Thread.run(Thread.java:748)
+INFO  [2018-03-19 17:52:23,253] org.hibernate.engine.internal.StatisticalLoggingSessionEventListener: Session Metrics {
+    86951 nanoseconds spent acquiring 2 JDBC connections;
+    63834 nanoseconds spent releasing 2 JDBC connections;
+    66504 nanoseconds spent preparing 1 JDBC statements;
+    606045 nanoseconds spent executing 1 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    217428 nanoseconds spent executing 1 flushes (flushing a total of 1 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+INFO  [2018-03-19 17:52:23,260] org.hibernate.engine.internal.StatisticalLoggingSessionEventListener: Session Metrics {
+    77803 nanoseconds spent acquiring 2 JDBC connections;
+    43730 nanoseconds spent releasing 2 JDBC connections;
+    61754 nanoseconds spent preparing 1 JDBC statements;
+    196398 nanoseconds spent executing 1 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    179109 nanoseconds spent executing 1 flushes (flushing a total of 1 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+ERROR [2018-03-19 17:52:23,265] org.glassfish.jersey.message.internal.WriterInterceptorExecutor: MessageBodyWriter not found for media type=text/html, type=class com.example.helloworld.views.PersonView, genericType=class com.example.helloworld.views.PersonView.
+INFO  [2018-03-19 17:52:23,265] org.hibernate.engine.internal.StatisticalLoggingSessionEventListener: Session Metrics {
+    551872 nanoseconds spent acquiring 2 JDBC connections;
+    61960 nanoseconds spent releasing 2 JDBC connections;
+    43659 nanoseconds spent preparing 1 JDBC statements;
+    188757 nanoseconds spent executing 1 JDBC statements;
+    0 nanoseconds spent executing 0 JDBC batches;
+    0 nanoseconds spent performing 0 L2C puts;
+    0 nanoseconds spent performing 0 L2C hits;
+    0 nanoseconds spent performing 0 L2C misses;
+    185296 nanoseconds spent executing 1 flushes (flushing a total of 1 entities and 0 collections);
+    0 nanoseconds spent executing 0 partial-flushes (flushing a total of 0 entities and 0 collections)
+}
+ERROR [2018-03-19 17:52:23,265] io.dropwizard.jersey.errors.LoggingExceptionMapper: Error handling a request: fd7daf101476de06
+! org.glassfish.jersey.message.internal.MessageBodyProviderNotFoundException: MessageBodyWriter not found for media type=text/html, type=class com.example.helloworld.views.PersonView, genericType=class com.example.helloworld.views.PersonView.
+! at org.glassfish.jersey.message.internal.WriterInterceptorExecutor$TerminalWriterInterceptor.aroundWriteTo(WriterInterceptorExecutor.java:247)
+! at org.glassfish.jersey.message.internal.WriterInterceptorExecutor.proceed(WriterInterceptorExecutor.java:162)
+! at org.glassfish.jersey.server.internal.JsonWithPaddingInterceptor.aroundWriteTo(JsonWithPaddingInterceptor.java:106)
+! at org.glassfish.jersey.message.internal.WriterInterceptorExecutor.proceed(WriterInterceptorExecutor.java:162)
+! at org.glassfish.jersey.server.internal.MappableExceptionWrapperInterceptor.aroundWriteTo(MappableExceptionWrapperInterceptor.java:86)
+! ... 55 common frames omitted
+! Causing: javax.ws.rs.InternalServerErrorException: HTTP 500 Internal Server Error
+! at org.glassfish.jersey.server.internal.MappableExceptionWrapperInterceptor.aroundWriteTo(MappableExceptionWrapperInterceptor.java:90)
+! at org.glassfish.jersey.message.internal.WriterInterceptorExecutor.proceed(WriterInterceptorExecutor.java:162)
+! at org.glassfish.jersey.message.internal.MessageBodyFactory.writeTo(MessageBodyFactory.java:1130)
+! at org.glassfish.jersey.server.ServerRuntime$Responder.writeResponse(ServerRuntime.java:711)
+! at org.glassfish.jersey.server.ServerRuntime$Responder.processResponse(ServerRuntime.java:444)
+! at org.glassfish.jersey.server.ServerRuntime$Responder.process(ServerRuntime.java:434)
+! at org.glassfish.jersey.server.ServerRuntime$2.run(ServerRuntime.java:329)
+! at org.glassfish.jersey.internal.Errors$1.call(Errors.java:271)
+! at org.glassfish.jersey.internal.Errors$1.call(Errors.java:267)
+! at org.glassfish.jersey.internal.Errors.process(Errors.java:315)
+! at org.glassfish.jersey.internal.Errors.process(Errors.java:297)
+! at org.glassfish.jersey.internal.Errors.process(Errors.java:267)
+! at org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:317)
+! at org.glassfish.jersey.server.ServerRuntime.process(ServerRuntime.java:305)
+! at org.glassfish.jersey.server.ApplicationHandler.handle(ApplicationHandler.java:1154)
+! at org.glassfish.jersey.servlet.WebComponent.serviceImpl(WebComponent.java:473)
+! at org.glassfish.jersey.servlet.WebComponent.service(WebComponent.java:427)
+! at org.glassfish.jersey.servlet.ServletContainer.service(ServletContainer.java:388)
+! at org.glassfish.jersey.servlet.ServletContainer.service(ServletContainer.java:341)
+! at org.glassfish.jersey.servlet.ServletContainer.service(ServletContainer.java:228)
+! at io.dropwizard.jetty.NonblockingServletHolder.handle(NonblockingServletHolder.java:49)
+! at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1650)
+! at io.dropwizard.servlets.ThreadNameFilter.doFilter(ThreadNameFilter.java:35)
+! at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1637)
+! at io.dropwizard.jersey.filter.AllowedMethodsFilter.handle(AllowedMethodsFilter.java:45)
+! at io.dropwizard.jersey.filter.AllowedMethodsFilter.doFilter(AllowedMethodsFilter.java:39)
+! at org.eclipse.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1637)
+! at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:533)
+! at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:188)
+! at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1253)
+! at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:168)
+! at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:473)
+! at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:166)
+! at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1155)
+! at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141)
+! at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:132)
+! at com.codahale.metrics.jetty9.InstrumentedHandler.handle(InstrumentedHandler.java:239)
+! at io.dropwizard.jetty.RoutingHandler.handle(RoutingHandler.java:52)
+! at org.eclipse.jetty.server.handler.gzip.GzipHandler.handle(GzipHandler.java:527)
+! at io.dropwizard.jetty.BiDiGzipHandler.handle(BiDiGzipHandler.java:67)
+! at org.eclipse.jetty.server.handler.RequestLogHandler.handle(RequestLogHandler.java:56)
+! at org.eclipse.jetty.server.handler.StatisticsHandler.handle(StatisticsHandler.java:169)
+! at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:132)
+! at org.eclipse.jetty.server.Server.handle(Server.java:530)
+! at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:347)
+! at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:256)
+! at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:279)
+! at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:102)
+! at org.eclipse.jetty.io.ChannelEndPoint$2.run(ChannelEndPoint.java:124)
+! at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.doProduce(EatWhatYouKill.java:247)
+! at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.produce(EatWhatYouKill.java:140)
+! at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.run(EatWhatYouKill.java:131)
+! at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:382)
+! at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:708)
+! at org.eclipse.jetty.util.thread.QueuedThreadPool$2.run(QueuedThreadPool.java:626)
+! at java.lang.Thread.run(Thread.java:748)
+INFO  [2018-03-19 17:52:23,293] org.eclipse.jetty.server.AbstractConnector: Stopped application@5b620937{HTTP/1.1,[http/1.1]}{0.0.0.0:0}
+INFO  [2018-03-19 17:52:23,294] org.eclipse.jetty.server.AbstractConnector: Stopped admin@54e6dcba{HTTP/1.1,[http/1.1]}{0.0.0.0:0}
+INFO  [2018-03-19 17:52:23,296] org.eclipse.jetty.server.handler.ContextHandler: Stopped i.d.j.MutableServletContextHandler@2781a1e5{/,null,UNAVAILABLE}
+INFO  [2018-03-19 17:52:23,297] org.eclipse.jetty.server.handler.ContextHandler: Stopped i.d.j.MutableServletContextHandler@5ca417fd{/,null,UNAVAILABLE}

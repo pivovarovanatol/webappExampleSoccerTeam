@@ -1,0 +1,7 @@
+/home/appneta/test/server/src/main/java/com/example/helloworld/core/Player.java
+/home/appneta/test/server/src/main/java/com/example/helloworld/core/Template.java
+/home/appneta/test/server/src/main/java/com/example/helloworld/HelloWorldConfiguration.java
+/home/appneta/test/server/src/main/java/com/example/helloworld/resources/HelloWorldResource.java
+/home/appneta/test/server/src/main/java/com/example/helloworld/db/PlayerDAO.java
+/home/appneta/test/server/src/main/java/com/example/helloworld/HelloWorldApplication.java
+/home/appneta/test/server/src/main/java/com/example/helloworld/api/Saying.java
