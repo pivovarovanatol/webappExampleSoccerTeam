@@ -22,8 +22,11 @@ import io.dropwizard.views.ViewBundle;
 import org.glassfish.jersey.server.filter.RolesAllowedDynamicFeature;
 
 import java.util.Map;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class HelloWorldApplication extends Application<HelloWorldConfiguration> {
+    private static final Logger LOGGER = LoggerFactory.getLogger(PlayersResource.class);
     public static void main(String[] args) throws Exception {
         new HelloWorldApplication().run(args);
     }
@@ -69,8 +72,8 @@ public class HelloWorldApplication extends Application<HelloWorldConfiguration> 
 
         // TODO add your resources here
 
-        final PlayersResource resource = new PlayersResource(template);
-
+        final PlayersResource resource = new PlayersResource(template, dao);
+        LOGGER.info("Testing.................................." + dao.toString());
         environment.jersey().register(resource);
 
     }

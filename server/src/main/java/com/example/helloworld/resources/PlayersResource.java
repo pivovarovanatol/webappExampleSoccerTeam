@@ -4,7 +4,10 @@ import com.codahale.metrics.annotation.Timed;
 import com.example.helloworld.api.Saying;
 import com.example.helloworld.api.PlayersList;
 import com.example.helloworld.core.Template;
+import com.example.helloworld.core.Player;
+import com.example.helloworld.db.PlayerDAO;
 
+import io.dropwizard.hibernate.UnitOfWork;
 import io.dropwizard.jersey.caching.CacheControl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,6 +18,8 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import java.util.Optional;
+import java.util.List;
+import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicLong;
 
@@ -22,32 +27,51 @@ import java.util.concurrent.atomic.AtomicLong;
 @Produces(MediaType.APPLICATION_JSON)
 public class PlayersResource {
     private static final Logger LOGGER = LoggerFactory.getLogger(PlayersResource.class);
+    private PlayerDAO playerDao;
+    private final Template template;
+    //private final AtomicLong counter;
 
-    private final String message;
-    private final String firstParameter;
-    private final String secondParameter;
-
+    public void setDAO(PlayerDAO dao) {
+        this.playerDao = dao;
+    }
 
     public PlayersResource(Template template) {
-        this.message = "";
-        this.firstParameter = "";
-        this.secondParameter = "";
+        this.template = template;
     }
 
-    public PlayersResource(String message, String firstParameter, String secondParameter) {
-        this.message = message;
-        this.firstParameter = firstParameter;
-        this.secondParameter = secondParameter;
+    public PlayersResource(Template template, PlayerDAO dao) {
+        this.template = template;
+        setDAO(dao);
     }
+
 
     @GET
     @Timed(name = "get-requests")
     @CacheControl(maxAge = 1, maxAgeUnit = TimeUnit.DAYS)
-    //public Representation getMessage(@QueryParam("first") Optional<String> first, @QueryParam("second") Optional<String> second) {
-    //    final String value = String.format(message, first.or(firstParameter), second.or(secondParameter));
-    //    return new Representation(value);
-    public PlayersList sayHello(@QueryParam("name") Optional<String> name) {
-        return new PlayersList(1, "Name");
+    @UnitOfWork
+    public List<Player> getPlayers(@QueryParam("playerId") Optional<Long> playerId) {
+        
+        LOGGER.info("==== Calling method getPlayers with parameters: " +
+                    playerId.toString());
+
+        if (this.playerDao != null && !playerId.isPresent()){
+            List<Player> players = playerDao.findAll();
+            return players;
+        }
+        if (this.playerDao != null && playerId.isPresent()){
+            long id = 0l;
+            if (playerId.isPresent()){
+                id = playerId.get();
+            }
+            Optional<Player> player= playerDao.findById(id);
+            List<Player> players = new ArrayList<Player>();
+            if (player.isPresent()) {
+                players.add(player.get());
+            } 
+            return players;
+        }
+        
+        return null;
     }
     
 }

@@ -19,6 +19,7 @@ import java.util.Objects;
             query = "SELECT p FROM Player p"
         )
     })
+
 public class Player {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,6 +31,22 @@ public class Player {
 
     @Column(name = "pos", nullable = false)
     private String pos;
+
+    @Column(name = "nat", nullable = false)
+    private String nat;
+
+    @Column(name = "height", nullable = false)
+    private float height;
+
+    @Column(name = "weight", nullable = false)
+    private float weight;
+
+    @Column(name = "dob", nullable = false)
+    private String dob;
+    
+    @Column(name = "birthplace", nullable = false)
+    private String birthplace;
+    
 
     public Player() {
     }
@@ -51,7 +68,7 @@ public class Player {
     public String getName() {
         return name;
     }
-
+    
     public void setlName(String name) {
         this.name = name;
     }
@@ -63,6 +80,47 @@ public class Player {
     public void setPos(String pos) {
         this.pos = pos;
     }
+
+    public String getNat() {
+        return nat;
+    }
+
+    public void setNat(String nat) {
+        this.nat = nat;
+    }
+
+    public float getHeight() {
+        return height;
+    }
+
+    public void setHeight(float height) {
+        this.height = height;
+    }
+
+    public float getWeight() {
+        return weight;
+    }
+
+    public void setWeight(float weight) {
+        this.weight = weight;
+    }
+
+    public String getDOB() {
+        return dob;
+    }
+
+    public void setDOB(String dob) {
+        this.dob = dob;
+    }
+
+    public String getBirthplace() {
+        return birthplace;
+    }
+
+    public void setBirthplace(String birthplace) {
+        this.birthplace = birthplace;
+    }
+
 
     @Override
     public boolean equals(Object o) {

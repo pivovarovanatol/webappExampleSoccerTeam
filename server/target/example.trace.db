@@ -1,0 +1,6 @@
+2019-11-23 16:35:17 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Table "PLAYERS" not found; SQL statement:
+/* com.example.helloworld.core.Player.findAll */ select player0_.number as number1_0_, player0_.name as name2_0_, player0_.pos as pos3_0_ from players player0_ [42102-192]
+2019-11-23 16:37:15 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "DATABASECHANGELOGLOCK" not found; SQL statement:
+select count(*) from PUBLIC.DATABASECHANGELOGLOCK [42102-192]

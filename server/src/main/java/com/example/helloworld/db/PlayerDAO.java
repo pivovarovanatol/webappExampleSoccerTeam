@@ -23,4 +23,6 @@ public class PlayerDAO extends AbstractDAO<Player> {
     public List<Player> findAll() {
         return list(namedQuery("com.example.helloworld.core.Player.findAll"));
     }
+
+
 }
