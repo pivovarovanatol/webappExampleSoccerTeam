@@ -1,17 +1,25 @@
 import React, { Component } from 'react';
 import './App.css';
+import Players from './components/players'
 
 class App extends Component {
+
+  state = {
+      players:[]
+  }
+
+  componentDidMount() {
+    fetch('http://localhost:8080/players')
+    .then(res=>res.json())
+    .then((data) => {
+      this.setState({players: data})
+    })
+    .catch(console.log)
+  }
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">AppNeta</h1>
-        </header>
-        <p className="App-intro">
-          Your application will live here. While the server is running, you can edit the source, save and then reload the page to see your changes.
-        </p>
-      </div>
+      <Players players={this.state.players} />
     );
   }
 }
