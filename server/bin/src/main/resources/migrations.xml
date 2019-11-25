@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="1" author="codahale">
+        <createTable tableName="players">
+            <column name="number" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="nat" type="varchar(255)"/>
+            <column name="pos" type="varchar(255)"/>
+            <column name="height" type="bigint"/>
+            <column name="weight" type="bigint"/>
+            <column name="dob" type="date"/>
+            <column name="birthplace" type="varchar(255)"/>
+        </createTable>
+
+        <loadData encoding="UTF-8" file="players.csv" tableName="players">
+            <column name="number" type="numeric"/>
+            <column name="name" type="string"/>
+            <column name="nat" type="string"/>
+            <column name="pos" type="string"/>
+            <column name="height" type="numeric"/>
+            <column name="weight" type="numeric"/>
+            <column name="dob" type="date"/>
+            <column name="birthplace" type="string"/>
+        </loadData>
+
+    </changeSet>
+</databaseChangeLog>
