@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import Players from './components/players'
+import ReactTable from 'react-table'
+import 'react-table/react-table.css'
 
 class App extends Component {
 
@@ -9,7 +11,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:8080/players')
+    fetch('/players')
     .then(res=>res.json())
     .then((data) => {
       this.setState({players: data})
@@ -20,8 +22,16 @@ class App extends Component {
 
   
   render() {
+
+
+
+
+
     return (
-      <Players players={this.state.players} />
+      //<table>
+
+        <Players players={this.state.players} />
+      //</table>
     );
   }
 }
