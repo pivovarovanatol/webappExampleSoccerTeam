@@ -1,18 +1,32 @@
 import React, { Component } from 'react';
 import { createSorter } from './../util/Sort';
+import { createFilter } from './../util/filter';
 
 class Players extends Component {
     state = {
-        sorters: this.props.sorters
+      filters: this.props.filters,
+      sorters: this.props.sorters
       };
     
-      static defaultProps = {
-        sorters: [{
-          property: 'pos'
-        }, {
-          property: 'name'
-        }]
-      };
+    constructor(props){
+      super(props);
+    }
+
+    static defaultProps = {
+      filters: [{
+        property: 'name',
+        value: ''
+      }, {
+        property: 'pos',
+        value: ''
+      }],
+
+      sorters: [{
+        property: 'id'
+      }, {
+        property: 'name'
+      }]
+    };
       
     componentDidMount () {
       fetch('/players')
@@ -40,6 +54,12 @@ class Players extends Component {
       });
     }
   
+    onFilter(text){
+      this.props.filters.name = 'id';
+      this.props.filters.value = text;
+      console.log("Filter by: " + text);
+    }
+
     render () {
       const { data } = this.state;
   
@@ -49,10 +69,28 @@ class Players extends Component {
     }
   
     renderData (data) {
-      if (data && data.length) {
+      if (data && data.length > 0) {
+        const { filters } = this.state;
+  
+        if (Array.isArray(filters) && filters.length) {
+          data = data.filter(createFilter(...filters));
+        }
+
         return (
           <div>
+          <div>
+            <input type="text" name="filter" />
+            <button onPress={this.onFilter('hello')}>Filter</button>
+          </div>
+
+          <div>
               <table>
+                <thead>
+                  <tr>
+                    <th>Player Id</th>
+                    <th>Player Name</th>
+                  </tr>
+              </thead>
                   <tbody>
                     {
                     data.map(item => (
@@ -70,6 +108,7 @@ class Players extends Component {
                     }
                   </tbody>
                 </table>
+          </div>
           </div>
         );
       } else {
