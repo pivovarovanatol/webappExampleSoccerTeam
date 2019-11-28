@@ -7,7 +7,8 @@ const doFilter = (item, filter) => {
       value = filter.value = new RegExp(value, 'i');
     }
   
-    return value.test(item[ filter.property ]);
+    //return value.test(item[ filter.property ]);
+    return value.test(item['name']);
   }
   
   const createFilter = (...filters) => {
