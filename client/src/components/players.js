@@ -1,20 +1,39 @@
 import React, { Component } from 'react';
 import { createSorter } from './../util/Sort';
 
-class List extends Component {
-    state = {}
-  
+class Players extends Component {
+    state = {
+        sorters: this.props.sorters
+      };
+    
+      static defaultProps = {
+        sorters: [{
+          property: 'pos'
+        }, {
+          property: 'name'
+        }]
+      };
+      
     componentDidMount () {
       fetch('/players')
         .then(res => res.json())
         .then(this.onLoad);
     }
   
-    parseData (response) {
-        console.log(response)
-        return response;
-    }
-  
+    parseData(data) {
+        const { sorters } = this.state;
+    
+        if (data && data.length) {
+          if (Array.isArray(sorters) && sorters.length) {
+            data.sort(createSorter(...sorters));
+          }
+        }
+    
+        return data;
+      }
+      
+      
+
     onLoad = (data) => {
       this.setState({
         data: this.parseData(data)
@@ -63,4 +82,4 @@ class List extends Component {
     }
   }
 
-  export default List;
+  export default Players;
