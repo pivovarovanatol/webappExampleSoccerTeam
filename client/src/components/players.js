@@ -120,10 +120,13 @@ class Players extends Component {
 
 
     handleSort(prop){
+      if (typeof prop === 'undefined') {
+        prop = this.state.sorters[0].property;
+      }
       this.setState({sortBy: prop})
       let sorters= this.state.sorters;
       sorters[0].property = prop.toString();
-      let sortedPlayers = this.state.players;
+      let sortedPlayers = this.state.data;
       sortedPlayers = sortedPlayers.sort(createSorter(...sorters));
 
       this.setState({sorters: sorters});
@@ -148,9 +151,9 @@ class Players extends Component {
       });
 
       // }]});
-      //this.setState({data: this.state.data});
+      // should sort accordingly
       this.setState({data: filteredPlayers});
-      //event.preventDefault();
+      //this.handleSort();
     }
 
 
@@ -170,6 +173,14 @@ class Players extends Component {
         if (Array.isArray(filters) && filters.length) {
           data = data.filter(createFilter(...filters));
         }
+        
+        var myMap = new Map();
+        
+        data.forEach(element => {
+          myMap.set(element.nat, 1)
+        })
+
+        var myArray = Array.from(myMap.keys());
 
         return (
           <div>
@@ -184,6 +195,19 @@ class Players extends Component {
             </form>
             <p/>
           </div>
+
+          <div>
+            <table>
+              <tr>
+              {
+                [myArray].map(item => (
+                    <td> {item.key} </td>
+                ))
+                }
+              </tr>
+            </table>
+          </div>
+
 
           <div>
               <table>
