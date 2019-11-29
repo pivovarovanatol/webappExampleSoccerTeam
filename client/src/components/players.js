@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { createSorter } from './../util/Sort';
 import { createFilter } from './../util/filter';
-import FilterForm from './FilterForm';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import Header from './Header';
 
 class Players extends Component {
     state = {
@@ -188,6 +190,14 @@ class Players extends Component {
         this.renderData(data) :
         this.renderLoading()
     }
+
+    renderHeader (){
+      return (
+        <div>
+        <h1>APPNETA</h1>
+        </div>
+      )
+    }
   
     renderData (data) {
       if (data && data.length > 0) {
@@ -216,8 +226,16 @@ class Players extends Component {
 
         return (
           <div>
+            <Header />
           <div>
           <p/>
+            <Form>
+              <Form.Row >
+                <Form.Label>Search</Form.Label>
+                  <Form.Control type="input" placeholder="Type your search here..." size='sm'/>
+                  <Button variant="primary" type="submit">Submit</Button>
+              </Form.Row>
+            </Form>
             <form onSubmit={this.handleFilter}>
               <label>
                 Filter:
@@ -259,14 +277,14 @@ class Players extends Component {
               </thead>
                   <tbody>
                     <tr>
-                      <td> <button onClick={this.sortById}> sort </button></td>
-                      <td> <button onClick={this.sortByName}> sort </button></td>
-                      <td> <button onClick={this.sortByPos}> sort </button></td>
-                      <td> <button onClick={this.sortByNat}> sort </button></td>
-                      <td> <button onClick={this.sortByHeight}> sort </button></td>
-                      <td> <button onClick={this.sortByWeight}> sort </button></td>
-                      <td> <button onClick={this.sortByDOB}> sort </button></td>
-                      <td> <button onClick={this.sortByBirthPlace}> sort </button></td>
+                      <td> <Button onClick={this.sortById} variant="secondary" active block size="sm"> sort </Button></td>
+                      <td> <Button onClick={this.sortByName} variant="secondary" active block size="sm"> sort </Button></td>
+                      <td> <Button onClick={this.sortByPos} variant="secondary" active block size="sm"> sort </Button></td>
+                      <td> <Button onClick={this.sortByNat} variant="secondary" active block size="sm"> sort </Button></td>
+                      <td> <Button onClick={this.sortByHeight} variant="secondary" active block size="sm"> sort </Button></td>
+                      <td> <Button onClick={this.sortByWeight} variant="secondary" active block size="sm"> sort </Button></td>
+                      <td> <Button onClick={this.sortByDOB} variant="secondary" active block size="sm"> sort </Button></td>
+                      <td> <Button onClick={this.sortByBirthPlace} variant="secondary" active block size="sm"> sort </Button></td>
                     </tr>
                     {
                     data.map(item => (
