@@ -15,7 +15,9 @@ class Players extends Component {
       this.state = {
         filter: '',
         players: [],
+        sortBy: 'name',
         filteredPLayers:[],
+        sortedPlayers:[],
         filters: [{
           property: 'name',
           value: ''
@@ -25,15 +27,20 @@ class Players extends Component {
         }],
   
         sorters: [{
+          property: 'name'
+        }, {
           property: 'id'
         }, {
-          property: 'name'
+          property: 'nat'
+        }, {
+          property: 'dob'
         }]
 
       };
 
       this.handleChange = this.handleChange.bind(this);
       this.handleFilter = this.handleFilter.bind(this);
+      this.handleSort = this.handleSort.bind(this);
     }
 
     static defaultProps = {
@@ -46,8 +53,6 @@ class Players extends Component {
       }],
 
       sorters: [{
-        property: 'id'
-      }, {
         property: 'name'
       }]
     };
@@ -82,6 +87,47 @@ class Players extends Component {
 
     handleChange(event){
       this.setState({filter: event.target.value});
+    }
+
+    sortById = () => {
+      this.handleSort('id');
+    }
+
+    sortByName = () => {
+      this.handleSort('name');
+    }
+
+    sortByPos = () => {
+      this.handleSort('pos');
+    }
+
+    sortByNat = () => {
+      this.handleSort('nat');
+    }
+
+    sortByHeight = () => {
+      this.handleSort('height');
+    }
+    sortByWeight = () => {
+      this.handleSort('weight');
+    }
+    sortByDOB = () => {
+      this.handleSort('dob');
+    }
+    sortByBirthPlace = () => {
+      this.handleSort('birthplace');
+    }
+
+
+    handleSort(prop){
+      this.setState({sortBy: prop})
+      let sorters= this.state.sorters;
+      sorters[0].property = prop.toString();
+      let sortedPlayers = this.state.players;
+      sortedPlayers = sortedPlayers.sort(createSorter(...sorters));
+
+      this.setState({sorters: sorters});
+      this.setState({data: sortedPlayers});
     }
 
     handleFilter(event){
@@ -154,6 +200,16 @@ class Players extends Component {
                   </tr>
               </thead>
                   <tbody>
+                    <tr>
+                      <td> <button onClick={this.sortById}> sort </button></td>
+                      <td> <button onClick={this.sortByName}> sort </button></td>
+                      <td> <button onClick={this.sortByPos}> sort </button></td>
+                      <td> <button onClick={this.sortByNat}> sort </button></td>
+                      <td> <button onClick={this.sortByHeight}> sort </button></td>
+                      <td> <button onClick={this.sortByWeight}> sort </button></td>
+                      <td> <button onClick={this.sortByDOB}> sort </button></td>
+                      <td> <button onClick={this.sortByBirthPlace}> sort </button></td>
+                    </tr>
                     {
                     data.map(item => (
                         <tr key={item.id}>
