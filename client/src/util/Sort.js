@@ -28,6 +28,8 @@ const dirMap = {
       ];
     }
   
+    //console.log("Inside sort.js: " + args[0].direction);
+
     return (A, B) => {
       let ret = 0;
   

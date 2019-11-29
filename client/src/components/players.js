@@ -7,7 +7,8 @@ class Players extends Component {
     state = {
       players: [],
       filters: this.props.filters,
-      sorters: this.props.sorters
+      sorters: this.props.sorters,
+      natAggr: []
       };
     
     constructor(props){
@@ -15,7 +16,12 @@ class Players extends Component {
       this.state = {
         filter: '',
         players: [],
+        natAggr: [{
+          nat:'',
+          count:0
+        }],
         sortBy: 'name',
+        sortDir: 'ASC',
         filteredPLayers:[],
         sortedPlayers:[],
         filters: [{
@@ -27,7 +33,8 @@ class Players extends Component {
         }],
   
         sorters: [{
-          property: 'name'
+          property: 'name',
+          direction: 'ASC'
         }, {
           property: 'id'
         }, {
@@ -120,15 +127,31 @@ class Players extends Component {
 
 
     handleSort(prop){
+      var curDir = this.state.sortDir;
+      var oldProp = this.state.sorters[0].property;
       if (typeof prop === 'undefined') {
         prop = this.state.sorters[0].property;
+      } else {
+        if (oldProp === prop){
+          if (curDir=== 'ASC') {
+            curDir = 'DESC';
+          } else {
+            curDir = 'ASC';
+          }
+        } else {
+          curDir = 'ASC';
+        }
       }
+
       this.setState({sortBy: prop})
       let sorters= this.state.sorters;
       sorters[0].property = prop.toString();
+      sorters[0].direction = curDir.toString();
+      
       let sortedPlayers = this.state.data;
       sortedPlayers = sortedPlayers.sort(createSorter(...sorters));
 
+      this.setState({sortDir: curDir});
       this.setState({sorters: sorters});
       this.setState({data: sortedPlayers});
     }
@@ -175,12 +198,21 @@ class Players extends Component {
         }
         
         var myMap = new Map();
+        var natAggr = this.state.natAggr;
         
         data.forEach(element => {
-          myMap.set(element.nat, 1)
+          var nat = element.nat.toString();
+          if (myMap.has(nat)){
+            var count = myMap.get(nat);
+            count++;
+            myMap.delete(nat);
+            myMap.set(nat, count);
+          } else {
+              myMap.set(nat, 1)
+          }
         })
 
-        var myArray = Array.from(myMap.keys());
+        natAggr = Array.from(myMap);
 
         return (
           <div>
@@ -198,13 +230,15 @@ class Players extends Component {
 
           <div>
             <table>
+              <tbody>
               <tr>
               {
-                [myArray].map(item => (
-                    <td> {item.key} </td>
+                natAggr.map((item) => (
+                  <td key={item[0]}>  {item[0]} : {item[1]} </td>
                 ))
                 }
               </tr>
+              </tbody>
             </table>
           </div>
 
