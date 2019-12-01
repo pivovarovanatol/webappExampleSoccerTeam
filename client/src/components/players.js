@@ -3,6 +3,7 @@ import { createSorter } from './../util/Sort';
 import { createFilter } from './../util/filter';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import Table from 'react-bootstrap/Table';
 import Header from './Header';
 
 class Players extends Component {
@@ -74,13 +75,11 @@ class Players extends Component {
   
     parseData(data) {
         const { sorters } = this.state;
-    
         if (data && data.length) {
           if (Array.isArray(sorters) && sorters.length) {
             data.sort(createSorter(...sorters));
           }
         }
-    
         return data;
       }
       
@@ -91,29 +90,25 @@ class Players extends Component {
       this.setState({
         players: this.state.data
       })
-
     }
 
     handleChange(event){
       this.setState({filter: event.target.value});
     }
 
+    // Sorting handlers 
     sortById = () => {
       this.handleSort('id');
     }
-
     sortByName = () => {
       this.handleSort('name');
     }
-
     sortByPos = () => {
       this.handleSort('pos');
     }
-
     sortByNat = () => {
       this.handleSort('nat');
     }
-
     sortByHeight = () => {
       this.handleSort('height');
     }
@@ -126,7 +121,6 @@ class Players extends Component {
     sortByBirthPlace = () => {
       this.handleSort('birthplace');
     }
-
 
     handleSort(prop){
       var curDir = this.state.sortDir;
@@ -174,14 +168,10 @@ class Players extends Component {
         let birthplaceHasFilter = player.birthplace.toLowerCase().indexOf(filter.toLowerCase()) !==-1
         return (nameHasFilter || idHasFilter || posHasFilter || natHasFilter  || heightHasFilter || weightHasFilter || dobHasFilter || birthplaceHasFilter)
       });
-
-      // }]});
       // should sort accordingly
       this.setState({data: filteredPlayers});
       //this.handleSort();
     }
-
-
 
     render () {
       const { data } = this.state;
@@ -189,14 +179,6 @@ class Players extends Component {
       return data ?
         this.renderData(data) :
         this.renderLoading()
-    }
-
-    renderHeader (){
-      return (
-        <div>
-        <h1>APPNETA</h1>
-        </div>
-      )
     }
   
     renderData (data) {
@@ -229,40 +211,33 @@ class Players extends Component {
             <Header />
           <div>
           <p/>
-            <Form>
+            <Form  onSubmit={this.handleFilter}>
               <Form.Row >
-                <Form.Label>Search</Form.Label>
-                  <Form.Control type="input" placeholder="Type your search here..." size='sm'/>
-                  <Button variant="primary" type="submit">Submit</Button>
+                  <Form.Control type="input" placeholder="Type your search here..." size='sm' 
+                  value={this.state.filter} onChange={this.handleChange} />
+                  <Button variant="secondary" block size="sm" type="submit">Filter</Button>
               </Form.Row>
             </Form>
-            <form onSubmit={this.handleFilter}>
-              <label>
-                Filter:
-                <input type="text" value={this.state.filter} onChange={this.handleChange} />
-              </label>
-              <input type="submit" value="Filter" />
-            </form>
             <p/>
           </div>
 
           <div>
-            <table>
+            <Table variant="light" size="sm" striped bordered block>
               <tbody>
               <tr>
               {
                 natAggr.map((item) => (
-                  <td key={item[0]}>  {item[0]} : {item[1]} </td>
+                  <td key={item[0]} size="sm">  {item[0]} : {item[1]} </td>
                 ))
                 }
               </tr>
               </tbody>
-            </table>
+            </Table>
           </div>
 
 
           <div>
-              <table>
+              <Table size="sm" striped bordered block>
                 <thead>
                   <tr>
                     <th>Player Id</th>
@@ -276,15 +251,15 @@ class Players extends Component {
                   </tr>
               </thead>
                   <tbody>
-                    <tr>
-                      <td> <Button onClick={this.sortById} variant="secondary" active block size="sm"> sort </Button></td>
-                      <td> <Button onClick={this.sortByName} variant="secondary" active block size="sm"> sort </Button></td>
-                      <td> <Button onClick={this.sortByPos} variant="secondary" active block size="sm"> sort </Button></td>
-                      <td> <Button onClick={this.sortByNat} variant="secondary" active block size="sm"> sort </Button></td>
-                      <td> <Button onClick={this.sortByHeight} variant="secondary" active block size="sm"> sort </Button></td>
-                      <td> <Button onClick={this.sortByWeight} variant="secondary" active block size="sm"> sort </Button></td>
-                      <td> <Button onClick={this.sortByDOB} variant="secondary" active block size="sm"> sort </Button></td>
-                      <td> <Button onClick={this.sortByBirthPlace} variant="secondary" active block size="sm"> sort </Button></td>
+                    <tr >
+                      <td> <Button onClick={this.sortById} variant="light" active block size="sm"> sort </Button></td>
+                      <td> <Button onClick={this.sortByName} variant="light" active block size="sm"> sort </Button></td>
+                      <td> <Button onClick={this.sortByPos} variant="light" active block size="sm"> sort </Button></td>
+                      <td> <Button onClick={this.sortByNat} variant="light" active block size="sm"> sort </Button></td>
+                      <td> <Button onClick={this.sortByHeight} variant="light" active block size="sm"> sort </Button></td>
+                      <td> <Button onClick={this.sortByWeight} variant="light" active block size="sm"> sort </Button></td>
+                      <td> <Button onClick={this.sortByDOB} variant="light" active block size="sm"> sort </Button></td>
+                      <td> <Button onClick={this.sortByBirthPlace} variant="light" active block size="sm"> sort </Button></td>
                     </tr>
                     {
                     data.map(item => (
@@ -301,38 +276,26 @@ class Players extends Component {
                     ))
                     }
                   </tbody>
-                </table>
+                </Table>
           </div>
           </div>
         );
       } else {
         return (
           <div>
+            <Header />
           <div>
           <p/>
-            <form onSubmit={this.handleFilter}>
-              <label>
-                Filter:
-                <input type="text" value={this.state.filter} onChange={this.handleChange} />
-              </label>
-              <input type="submit" value="Filter" />
-            </form>
+            <Form onSubmit={this.handleFilter}>
+              <Form.Row >
+                  <Form.Control type="input" placeholder="Type your search here..." size='sm' 
+                  value={this.state.filter} onChange={this.handleChange} />
+                  <Button variant="secondary" block size="sm" type="submit">Filter</Button>
+              </Form.Row>
+            </Form>
             <p/>
-          </div>
-
-          <div>
-              <table>
-                <thead>
-                  <tr>
-                    <th>Player Id</th>
-                    <th>Player Name</th>
-                  </tr>
-              </thead>
-                  <tbody>
-                  </tbody>
-                </table>
-          </div>
-          <div>No items found</div>
+          </div>          
+            <div>No items found</div>
           </div>
         )
       }
